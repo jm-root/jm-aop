@@ -1,9 +1,9 @@
 import chai from 'chai';
 let expect = chai.expect;
-import _ from 'jm-core';
+import $ from 'jm-core';
 import Aop from '../src/aop';
 
-let jm = _()
+let jm = new $()
         .use(Aop)
     ;
 
