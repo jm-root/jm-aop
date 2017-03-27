@@ -5,32 +5,31 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-exports.default = function (jm) {
+exports.default = function ($) {
     var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'aop';
 
-    jm[name] = {
+    $[name] = {
         _Arguments: function _Arguments(args) {
-            //convert arguments object to array
+            // convert arguments object to array
             this.value = [].slice.call(args);
         },
 
         arguments: function _arguments() {
-            //convert arguments object to array
+            // convert arguments object to array
             return new this._Arguments(arguments);
         },
 
         inject: function inject(aOrgFunc, aBeforeExec, aAtferExec) {
             var self = this;
             return function () {
-                var Result,
-                    isDenied = false,
-                    args = [].slice.call(arguments);
+                var Result = void 0;
+                var isDenied = false;
+                var args = [].slice.call(arguments);
                 if (typeof aBeforeExec == 'function') {
                     Result = aBeforeExec.apply(this, args);
-                    if (Result instanceof self._Arguments) //(Result.constructor === _Arguments)
-                        args = Result.value;else if (isDenied = Result !== undefined) args.push(Result);
+                    if (Result instanceof self._Arguments) args = Result.value;else if (isDenied = Result !== undefined) args.push(Result);
                 }
-                !isDenied && args.push(aOrgFunc.apply(this, args)); //if (!isDenied) args.push(aOrgFunc.apply(this, args));
+                !isDenied && args.push(aOrgFunc.apply(this, args));
                 if (typeof aAtferExec == 'function') Result = aAtferExec.apply(this, args.concat(isDenied));else Result = undefined;
                 return Result !== undefined ? Result : args.pop();
             };
@@ -39,8 +38,8 @@ exports.default = function (jm) {
 
     return {
         name: name,
-        unuse: function unuse(jm) {
-            delete jm[name];
+        unuse: function unuse($) {
+            delete $[name];
         }
     };
 };
