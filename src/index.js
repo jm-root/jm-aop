@@ -1,7 +1,7 @@
-import {aop, module_aop} from './aop';
+import {aop, moduleAop} from './aop';
 
 if (typeof global !== 'undefined' && global) {
-    global.jm && global.jm.use(module_aop);
+    global.jm && global.jm.use(moduleAop);
 }
 
 export default aop;

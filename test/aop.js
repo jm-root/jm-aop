@@ -1,10 +1,10 @@
 import chai from 'chai';
 let expect = chai.expect;
 import JM from 'jm-core';
-import {module_aop} from '../src/aop';
+import {moduleAop} from '../src/aop';
 
 let jm = new JM()
-        .use(module_aop)
+        .use(moduleAop)
     ;
 
 let add = (v1, v2) => v1 + v2;
@@ -26,7 +26,7 @@ sub = jm.aop.inject(sub, (v1, v2) => {
 describe('aop', function () {
     it('jm.aop', function () {
         expect(jm.aop).to.be.a('object');
-        expect(module_aop).to.be.a('function');
+        expect(moduleAop).to.be.a('function');
         expect(add(1, 2)).to.be.equal(9);
         expect(sub(2, 0)).to.be.equal(9);
     });

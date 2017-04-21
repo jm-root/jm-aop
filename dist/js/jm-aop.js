@@ -32,7 +32,7 @@ var aop = {
     }
 };
 
-var module_aop = function module_aop($) {
+var moduleAop = function moduleAop($) {
     var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'aop';
 
     $[name] = aop;
@@ -47,7 +47,7 @@ var module_aop = function module_aop($) {
 
 exports.default = aop;
 exports.aop = aop;
-exports.module_aop = module_aop;
+exports.moduleAop = moduleAop;
 },{}],2:[function(require,module,exports){
 (function (global){
 'use strict';
@@ -59,7 +59,7 @@ Object.defineProperty(exports, "__esModule", {
 var _aop = require('./aop');
 
 if (typeof global !== 'undefined' && global) {
-    global.jm && global.jm.use(_aop.module_aop);
+    global.jm && global.jm.use(_aop.moduleAop);
 }
 
 exports.default = _aop.aop;

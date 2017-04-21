@@ -32,7 +32,7 @@ let aop = {
     },
 };
 
-let module_aop = ($, name = 'aop') => {
+let moduleAop = ($, name = 'aop') => {
     $[name] = aop;
 
     return {
@@ -44,4 +44,4 @@ let module_aop = ($, name = 'aop') => {
 };
 
 export default aop;
-export {aop, module_aop};
+export {aop, moduleAop};
