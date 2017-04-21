@@ -1,7 +1,7 @@
 import chai from 'chai';
 let expect = chai.expect;
 import $ from 'jm-core';
-import Aop from '../src/aop';
+import {module as Aop} from '../src/aop';
 
 let jm = new $()
         .use(Aop)
